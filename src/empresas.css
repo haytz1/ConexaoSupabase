@@ -1,0 +1,494 @@
+/* ========================================
+   FUNDO DA PÁGINA
+======================================== */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        linear-gradient(90deg,#1e133d, #37235c, #5c4c79)
+
+    
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.empresas-header {
+    padding: 40px 42px 25px;
+}
+
+.empresas-header h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    letter-spacing: -0.8px;
+}
+
+.empresas-header h1::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 4px;
+
+    margin-top: 12px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #a855f7,
+        #7c3aed
+    );
+
+    box-shadow:
+        0 0 15px rgba(168, 85, 247, 0.6);
+}
+
+.empresas-header p {
+    margin: 12px 0 0;
+
+    color: #a99bb8;
+
+    font-size: 15px;
+}
+
+
+/* ========================================
+   TÍTULOS "EMPRESAS" E "FUNCIONARIOS"
+======================================== */
+
+.empresas-header + h2,
+.tabela-card + h2 {
+    margin: 25px 42px 15px;
+
+    color: #f8f5ff;
+
+    font-size: 21px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.empresas-header + h2::before,
+.tabela-card + h2::before {
+    content: "";
+
+    width: 5px;
+    height: 22px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        180deg,
+        #c084fc,
+        #7c3aed
+    );
+
+    box-shadow:
+        0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+
+/* ========================================
+   PRIMEIRO CARD - EMPRESAS
+======================================== */
+
+.tabela-card {
+    margin: 0 42px 35px;
+
+    padding: 8px;
+
+    background: rgba(31, 20, 48, 0.85);
+
+    border: 1px solid rgba(168, 85, 247, 0.18);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(124, 58, 237, 0.07);
+
+    backdrop-filter: blur(15px);
+
+    overflow-x: auto;
+}
+
+
+/* ========================================
+   PRIMEIRA TABELA
+======================================== */
+
+.empresas-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+}
+
+
+/* Cabeçalho */
+
+.empresas-table tr:first-child {
+    background: linear-gradient(
+        135deg,
+        #6d28d9,
+        #7c3aed,
+        #9333ea
+    );
+}
+
+.empresas-table th {
+    padding: 17px 20px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    white-space: nowrap;
+}
+
+
+/* Cantos do cabeçalho */
+
+.empresas-table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.empresas-table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+
+/* ========================================
+   LINHAS DA PRIMEIRA TABELA
+======================================== */
+
+.empresas-table tr:not(:first-child) {
+    transition: background 0.2s ease;
+}
+
+.empresas-table tr:not(:first-child):hover td {
+    background: rgba(139, 92, 246, 0.10);
+}
+
+
+/* Células */
+
+.empresas-table td {
+    padding: 17px 20px;
+
+    color: #cfc5da;
+
+    background: rgba(18, 11, 30, 0.55);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    transition: background 0.2s ease;
+}
+
+
+/* ID */
+
+.empresas-table td:first-child {
+    color: #b56cff;
+
+    font-weight: 700;
+}
+
+
+/* Nome */
+
+.empresas-table td:nth-child(2) {
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* CNPJ */
+
+.empresas-table td:nth-child(3) {
+    color: #b9aec7;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+}
+
+
+/* Endereço */
+
+.empresas-table td:nth-child(4) {
+    color: #bfb4cc;
+}
+
+
+/* ========================================
+   SEGUNDA TABELA - FUNCIONÁRIOS
+======================================== */
+
+/*
+   Como você não colocou uma classe na segunda tabela,
+   usamos o h2 "Funcionarios" como referência.
+*/
+
+.tabela-card + h2 + div {
+    margin: 0 42px 40px;
+
+    padding: 8px;
+
+    background: rgba(31, 20, 48, 0.85);
+
+    border: 1px solid rgba(168, 85, 247, 0.18);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(124, 58, 237, 0.07);
+
+    backdrop-filter: blur(15px);
+
+    overflow-x: auto;
+}
+
+
+/* Segunda tabela */
+
+.tabela-card + h2 + div table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+}
+
+
+/* Cabeçalho */
+
+.tabela-card + h2 + div table tr:first-child {
+    background: linear-gradient(
+        135deg,
+        #6d28d9,
+        #7c3aed,
+        #9333ea
+        );
+    }
+    
+    .tabela-card + h2 + div table th {
+    padding: 17px 20px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   CÉLULAS DOS FUNCIONÁRIOS
+======================================== */
+
+.tabela-card + h2 + div table td {
+    padding: 17px 20px;
+
+    color: #cfc5da;
+
+    background: rgba(18, 11, 30, 0.55);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    transition: background 0.2s ease;
+}
+
+
+/* Hover */
+
+.tabela-card + h2 + div table tr:not(:first-child):hover td {
+    background: rgba(139, 92, 246, 0.10);
+}
+
+
+/* ID */
+
+.tabela-card + h2 + div table td:first-child {
+    color: #b56cff;
+
+    font-weight: 700;
+}
+
+
+/* Nome do funcionário */
+
+.tabela-card + h2 + div table td:nth-child(2) {
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* Nome da empresa */
+
+.tabela-card + h2 + div table td:nth-child(3) {
+    color: #c084fc;
+
+    font-weight: 600;
+}
+
+
+/* Endereço da empresa */
+
+.tabela-card + h2 + div table td:nth-child(4) {
+    color: #b9aec7;
+}
+
+
+/* Cargo */
+
+.tabela-card + h2 + div table td:nth-child(5) {
+    color: #ddd6e8;
+
+    font-weight: 500;
+}
+
+
+/* Contato */
+
+.tabela-card + h2 + div table td:nth-child(6) {
+    color: #bcaecc;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.tabela-card::-webkit-scrollbar,
+.tabela-card + h2 + div::-webkit-scrollbar {
+    height: 8px;
+}
+
+.tabela-card::-webkit-scrollbar-track,
+.tabela-card + h2 + div::-webkit-scrollbar-track {
+    background: #1b1029;
+
+    border-radius: 20px;
+}
+
+.tabela-card::-webkit-scrollbar-thumb,
+.tabela-card + h2 + div::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        90deg,
+        #6d28d9,
+        #a855f7
+    );
+
+    border-radius: 20px;
+}
+
+.tabela-card::-webkit-scrollbar-thumb:hover,
+.tabela-card + h2 + div::-webkit-scrollbar-thumb:hover {
+    background: #c084fc;
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 800px) {
+
+    .empresas-header {
+        padding: 30px 20px 20px;
+    }
+
+    .empresas-header h1 {
+        font-size: 29px;
+    }
+
+    .empresas-header + h2,
+    .tabela-card + h2 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .tabela-card,
+    .tabela-card + h2 + div {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .empresas-table,
+    .tabela-card + h2 + div table {
+        min-width: 750px;
+    }
+}
+
+
+/* ========================================
+   CELULAR
+======================================== */
+
+@media (max-width: 500px) {
+
+    .empresas-header {
+        padding: 25px 16px 18px;
+    }
+
+    .empresas-header h1 {
+        font-size: 25px;
+    }
+
+    .empresas-header p {
+        font-size: 13px;
+    }
+
+    .empresas-header + h2,
+    .tabela-card + h2 {
+        margin-left: 16px;
+        margin-right: 16px;
+
+        font-size: 18px;
+    }
+
+    .tabela-card,
+    .tabela-card + h2 + div {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
