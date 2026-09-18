@@ -294,36 +294,33 @@ button:active {
 
 .fundopreto {
     position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    background: rgba(7, 10, 18, 0.72);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Deixa a tela escura/translúcida */
+    z-index: 998;
     animation: fundoEntrada 0.25s ease-out;
 }
 
 .modal {
     position: fixed;
-    z-index: 10000;
-
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    width: min(92%, 440px);
-    padding: 32px;
-
-    box-sizing: border-box;
-
+    background-color: #1a0e61;
+    padding: 24px;
+    border-radius: 8px;
+    z-index: 999; /* Fica acima do fundo preto */
+    width: 90%;
+    max-width: 400px;
     background: linear-gradient(
         145deg,
-        #ffffff 0%,
-        #f8f9fc 100%
+        #0e086b 0%,
+        #0b1c4e 100%
     );
 
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(72, 7, 250, 0.8);
     border-radius: 20px;
 
     box-shadow:
@@ -361,7 +358,7 @@ button:active {
 .modal h2 {
     margin: 4px 0 8px;
 
-    color: #111827;
+    color: #fefeff;
 
     font-family:
         Inter,
@@ -569,4 +566,7 @@ button:active {
     .modal-botoes button {
         width: 100%;
     }
+}
+.divdesgraçada{
+    z-index: 10000;
 }

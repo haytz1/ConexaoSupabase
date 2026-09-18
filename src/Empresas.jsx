@@ -14,6 +14,11 @@ function Empresas() {
 
     const [showModal, setShowModal] = useState(false)
 
+    const [idEmpresa, setIdEmpresa] = useState("")
+    const [ nome, setNome ] = useState('')
+    const [ contato, setContato ] = useState('')
+    const [ cargo, setCargo ] = useState('1')
+
     async function buscaFuncionarios(){
 
         const {error,data} = await supabase.from('funcionarios').select('*,empresas(*)') // o * serve para puxar tudo da lista funcionarios e depois do uma , e chamo a outra tabela abro parenteses e falo oq irei puxar dela
@@ -34,6 +39,7 @@ function Empresas() {
         const {error,data} = await supabase.from('funcionarios').select('*,empresas(*)').eq('id_empresa', id_empresa )
         console.log(data)
         setFuncionarios(data)
+        setIdEmpresa(id_empresa)
 
         alterarVisualizaçao()
     }
@@ -50,13 +56,35 @@ function Empresas() {
 
     }
 
+    async function inserirFuncionario(){
+
+        const obj = {
+            id_empresa: parseInt(idEmpresa),
+            nome: nome,
+            contato: contato,
+            cargo: parseInt(cargo)
+        }
+
+        const {error} = await supabase.from('funcionarios').insert(obj)
+
+        if (error == null){
+            alert('Funcionario cadastrado com sucesso')
+            setShowModal(false)
+            buscaFuncionarioPorEmpresa(idEmpresa)
+        } else {
+            alert('Tem algo errado')
+            return
+        }
+
+    }
+
     useEffect( ()=>{
         buscaTodasEmpresas()
         buscaFuncionarios()
     }, [] )
 
     return (
-        <div >
+        <>
 
             <div className="empresas-header">
                 <h1>Relacionamento de Tabelas</h1>
@@ -85,7 +113,7 @@ function Empresas() {
                                         <td>{i.nome}</td>
                                         <td>{i.cnpj}</td>
                                         <td>{i.endereco}</td>
-                                        <td><button onClick={ ()=> buscaFuncionarioPorEmpresa(i.id) } >Ver Funcionarios</button></td>
+                                        <td><button onClick={ ()=>{buscaFuncionarioPorEmpresa(i.id); alterarVisualizaçao()}  } >Ver Funcionarios</button></td>
 
                                     </tr>
                                     )
@@ -101,7 +129,7 @@ function Empresas() {
             {
                 showFuncionarios == true ?
                     <div>
-                        <button onClick={alterarVisualizaçao} >Voltar</button>
+                        <button onClick={ ()=>{alterarVisualizaçao(); setIdEmpresa(" ") }} > Voltar</button>
                         <br/><br/>
                         <button onClick={()=> setShowModal(true)} >Adicionar Novo</button>
                         <br/><br/><br/>
@@ -143,22 +171,22 @@ function Empresas() {
 
             {
                 showModal == true ?
-                    <div>
+                    <>
                         <div onClick={()=> setShowModal(false)} className='fundopreto' ></div>
                         <div className='modal' >
                             <h2>Novo funcionario</h2>
-                            <input placeholder="Nome" />
-                            <input placeholder="Contato" />
-                            <select>
+                            <input onChange={e => setNome(e.target.value)} placeholder="Nome" />
+                            <input onChange={e => setContato(e.target.value)} placeholder="Contato" />
+                            <select onChange={e => setCargo(e.target.value)}>
                                 <option value='1' >Funcionario Comum</option>
                                 <option value='0' >Administrador</option>
                             </select>
                             <div className="modal-botoes" >
-                                <button className="btn-salvar"  >Cadastrar Funcionario</button>
+                                <button className="btn-salvar" onClick={inserirFuncionario} >Cadastrar Funcionario</button>
                                 <button className="btn-cancelar" onClick={()=> setShowModal(false)} >Cancelar</button>
                             </div>
                         </div>
-                    </div>
+                    </>
                 :
                     <></>
             }
@@ -168,7 +196,7 @@ function Empresas() {
 
 
 
-        </div>
+        </>
     );
 }
 
